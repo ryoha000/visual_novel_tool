@@ -8,7 +8,7 @@ tki.geometry('193x65')
 iconfile = 'assets/favicon.ico'
 tki.title('VNT')
 tki.iconbitmap(default=iconfile)
-tki.resizable(0, 0)
+# tki.resizable(0, 0)
 
 # # ラベル
 # lbl_1 = tkinter.Label(text='10進数')

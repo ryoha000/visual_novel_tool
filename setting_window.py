@@ -49,6 +49,7 @@ class SettingWindow(object):
                 self.image_rgb = cv2.cvtColor(value, cv2.COLOR_BGR2RGB)  # imreadはBGRなのでRGBに変換
                 self.image_pil = Image.fromarray(self.image_rgb)  # RGBからPILフォーマットへ変換
                 self.img_imgtks.append(ImageTk.PhotoImage(self.image_pil))  # ImageTkフォーマットへ変換
+                self.image_pil.show()
                 if len(key) > 9:
                     key = key[0:8] + '...'
                 self.img_imgs.append(tk.Canvas(self.frame3, width=value.shape[0], height=value.shape[1]))  # Canvas作成

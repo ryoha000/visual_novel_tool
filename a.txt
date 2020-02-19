@@ -1,11 +1,2 @@
-voice_icon = Image.open('assets/voice-icon.png')
-voice_icon = voice_icon.resize((40, 40), Image.ANTIALIAS)
-voice_ico = ImageTk.PhotoImage(voice_icon)
-# ボタン
-voice_btn = tkinter.Button(
-    tki,
-    text='capture',
-    compound=tkinter.TOP,
-    image=voice_ico
-)
-voice_btn.grid(row=1, column=2)
+egg) {(-1920, 0): (1.0, 1920, 1080), (0, 0): (1.0, 1920, 1080)}
+for 

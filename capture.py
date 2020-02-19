@@ -3,6 +3,7 @@ import win32ui
 import win32con
 import numpy as np
 import cv2
+# from get_monitor_data import GetMonitorData
 
 
 #  ウィンドウのキャプチャを取得する。allは第一引数(window_name)を""に
@@ -41,6 +42,9 @@ def WindowCapture(window_name: str, bgr2rgb: bool = False) -> dict:
         if width == 0 or height == 0:
             continue
 
+        # monitor_dict = GetMonitorData()
+        # for m in monitor_dict:
+
         # ウィンドウのデバイスコンテキスト取得
         windc = win32gui.GetWindowDC(hnd)
         srcdc = win32ui.CreateDCFromHandle(windc)
@@ -65,7 +69,7 @@ def WindowCapture(window_name: str, bgr2rgb: bool = False) -> dict:
             rev_img = cv2.bitwise_not(bw_image)
             b_count = cv2.countNonZero(rev_img)
             w_count = cv2.countNonZero(bw_image)
-            if b_count / rev_img.size < 0.97 and w_count / rev_img.size < 0.97:
+            if b_count / rev_img.size < 0.99 and w_count / rev_img.size < 0.99:
                 imgs_dict[key] = img
 
         except SystemError:
@@ -82,6 +86,8 @@ def WindowCapture(window_name: str, bgr2rgb: bool = False) -> dict:
 
 # imgs = WindowCapture("")  # 部分一致
 # for img in imgs.values():
+#     scale = 150 / img.shape[1]
+#     img = cv2.resize(img, dsize=None, fx=scale, fy=scale)
 #     cv2.imshow("", img)
 #     cv2.waitKey(0)
 #     cv2.destroyAllWindows()
